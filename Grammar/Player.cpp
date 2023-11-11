@@ -2,7 +2,12 @@
 #include <iostream>
 using namespace std;
 
-
+Skill::Skill(SkillType type, const char* name, const char* desc, int att, int def)
+	:type_(type), att_(att), def_(def)
+{
+	strcpy_s(name_,name);
+	strcpy_s(desc_, desc);
+}
 
 void Player::SetJob(JobType type)
 {
@@ -94,4 +99,19 @@ const char* Player::GetJobName() const
 	}
 
 	return "";
+}
+
+//1. 비어있는 스킬 목록에 자동 세팅
+void Player::SetSkill(const Skill* pSkill)
+{
+	for (int i = 0; i < SKILL_MAX; i++)
+	{
+		if (pSkills_[i] == nullptr)
+		{
+			pSkills_[i] = pSkill;
+			return;
+		}
+	}
+
+	cout << "더 이상 스킬을 추가할 수 없습니다." << endl;
 }

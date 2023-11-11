@@ -1,28 +1,33 @@
 #pragma once
 #include "Object.h"
-//2. 경찰관 3. 청소부 4. 소방관 5. 의사
-enum JobType : int
+#include "enum.h"
+#define SKILL_MAX 4
+class Skill
 {
-	NONE,
-	PART_TIMER,
-	POLICE,
-	CLEANER,
-	FIREFIGHTER,
-	DOCTOR
+	SkillType type_;
+	char name_[20];
+	char desc_[30]; // 스킬 설명
+	int att_;
+	int def_;
+
+public:
+	Skill(SkillType type, const char* name, const char* desc, int att, int def);
+
 };
 
 class Player : public Object
 {
 private:
 	JobType job_;
-	
+	const Skill* pSkills_[SKILL_MAX];
 
 public:
-	
 	void SetJob(JobType type);
 	JobType GetJob() const { return job_; }
 	void ShowStatus() const;
 	const char* GetJobName() const;
+	void SetSkill(const Skill* pSkill);
+
 	//const 함수 - 클래스 멤버 함수를 const화 시킴
 	//- 멤버 변수의 값을 변경할 수 없음
 	//- 함수 내에서는 const 함수만 호출할 수 있음

@@ -27,6 +27,8 @@ void CreatePlayer()
 	cin >> job;
 	p1.SetJob(static_cast<JobType>(job));
 	p1.ShowStatus();
+
+	p1.SetSkill(new Skill(SkillType::ATTACK, "미라클 어택!", "미라클한 데미지를 입힌다.", 10, 0));
 }
 
 void CreateMonster()
@@ -148,4 +150,12 @@ int main()
 5. 스킬
 - 스킬 목록
 - mp 깍이고 스킬 데미지로 공격!!
+*/
+
+/* 11/11 숙제
+스킬 구현하기
+
+데미지 몇 입혔습니다.
+디버프
+
 */

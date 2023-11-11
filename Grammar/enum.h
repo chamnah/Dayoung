@@ -23,3 +23,19 @@ enum BattleType
 	ITEM,
 	ESCAPE
 };
+
+enum JobType : int
+{
+	NONE,
+	PART_TIMER,
+	POLICE,
+	CLEANER,
+	FIREFIGHTER,
+	DOCTOR
+};
+
+enum SkillType
+{
+	ATTACK,
+	ST_END
+};
