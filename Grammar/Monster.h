@@ -5,4 +5,6 @@ class Monster : public Object
 {
 public:
 	void Initialize(DungeonType type);
+	virtual void Kill(const Object* pObj);
+	virtual void Dead();
 };

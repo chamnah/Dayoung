@@ -62,3 +62,14 @@ void Monster::Initialize(DungeonType type)
 	}
 
 }
+
+void Monster::Kill(const Object* pObj)
+{
+	std::cout << name_ << "에게 죽음을 맞이하였습니다." << std::endl;
+}
+
+void Monster::Dead()
+{
+	std::cout << name_ << "(을)를 처치하였습니다." << std::endl;
+	delete this;
+}

@@ -36,6 +36,6 @@ enum JobType : int
 
 enum SkillType
 {
-	ATTACK,
+	ST_ATTACK,
 	ST_END
 };

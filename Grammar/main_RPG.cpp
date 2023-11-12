@@ -28,11 +28,29 @@ void CreatePlayer()
 	p1.SetJob(static_cast<JobType>(job));
 	p1.ShowStatus();
 
-	p1.SetSkill(new Skill(SkillType::ATTACK, "미라클 어택!", "미라클한 데미지를 입힌다.", 10, 0));
+	p1.SetSkill(new Skill(SkillType::ST_ATTACK, "미라클 어택!", "미라클한 데미지를 입힌다.", 10, 0));
+	//상점 스킬 구매
 }
 
 void CreateMonster()
 {
+}
+
+void Attack(Object* pFirst, Object* pSecond)
+{
+	pSecond->Hit(pFirst->GetAttack());
+
+	if (pSecond->GetHP() <= 0)
+	{
+		pFirst->Kill(pSecond);
+	}
+
+	pFirst->Hit(pSecond->GetAttack());
+
+	if (pFirst->GetHP() <= 0)
+	{
+		pFirst->Dead();
+	}
 }
 
 void Battle(DungeonType type)
@@ -65,28 +83,28 @@ void Battle(DungeonType type)
 		int select = 0;
 		cin >> select;
 
+		bool firstAttack = p1.GetSpeed() >= pMonster->GetSpeed();
+
 		switch (select)
 		{
 		case ATTACK:
-			Object* pFirst;
-			Object* pSecond;
-
-			if (p1.GetSpeed() >= pMonster->GetSpeed())
+			if (firstAttack)
 			{
-				pFirst = &p1;
-				pSecond = pMonster;
+				Attack(&p1, pMonster);
 			}
 			else
 			{
-				pSecond = &p1;
-				pFirst = pMonster;
+				Attack(pMonster, &p1);
 			}
-			pSecond->Hit(pFirst->GetAttack());
-			pFirst->Hit(pSecond->GetAttack());
 			break;
 		case DEFENCE:
 			break;
 		case SKILL:
+			int selectSkill = 0;
+			p1.ShowSkillList();
+			cin >> selectSkill;
+			p1.UseSkill(selectSkill, pMonster);
+
 			break;
 		case ITEM:
 			break;
@@ -96,9 +114,6 @@ void Battle(DungeonType type)
 			break;
 		}
 	}
-
-	delete pMonster;
-	pMonster = nullptr;
 }
 
 void ShowDungeon()
@@ -112,18 +127,21 @@ void ShowDungeon()
 void ShowStage()
 {
 	int selectedStage = 0;
-	cout << "0. 던전 1. 여관";
-	cin >> selectedStage;
-	switch (selectedStage)
+
+	while (true)
 	{
-	case DUNGEON:
-		ShowDungeon();
-		break;
+		cout << "0. 던전 1. 여관";
+		cin >> selectedStage;
+		switch (selectedStage)
+		{
+		case DUNGEON:
+			ShowDungeon();
+			break;
 
-	default:
-		break;
+		default:
+			break;
+		}
 	}
-
 }
 
 int main()
@@ -131,6 +149,16 @@ int main()
 	CreatePlayer();
 	ShowStage();
 }
+
+/*
+JRPG - 마왕
+
+전투
+
+
+죽은 경우 - 돈 10프로 사라짐 / exp 0
+
+*/
 
 /*
 숙제
@@ -158,4 +186,26 @@ int main()
 데미지 몇 입혔습니다.
 디버프
 
+디자인 패턴
+싱글톤
+팩토리
+옵저버
+GOF
+
+모작 - 포폴
+창작 - 포폴 + 기획
+역기획
+*/
+
+/*
+- 숙제
+- 스피드를 고려한 스킬 사용 구현
+
+- 가능한 선에서 해보기
+- 인벤토리 구현 -> 아이템 리스트 
+- 상점 구현하기(구매)
+- 선택지 추가 - 나의 상태창 / 상점
+
+
++ 파일 입출력 - 캐릭터 상태 저장 및 로드
 */

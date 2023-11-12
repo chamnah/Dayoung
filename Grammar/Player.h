@@ -7,12 +7,13 @@ class Skill
 	SkillType type_;
 	char name_[20];
 	char desc_[30]; // 스킬 설명
-	int att_;
-	int def_;
+	int value_;
 
 public:
 	Skill(SkillType type, const char* name, const char* desc, int att, int def);
-
+	const char* GetName() const { return name_; }
+	SkillType GetType() const { return type_; }
+	int GetValue() const { return value_; }
 };
 
 class Player : public Object
@@ -27,6 +28,10 @@ public:
 	void ShowStatus() const;
 	const char* GetJobName() const;
 	void SetSkill(const Skill* pSkill);
+	virtual void Kill(const Object* pObj);
+	virtual void Dead();
+	void ShowSkillList();
+	void UseSkill(int index, const Object* pObj);
 
 	//const 함수 - 클래스 멤버 함수를 const화 시킴
 	//- 멤버 변수의 값을 변경할 수 없음

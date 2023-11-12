@@ -13,15 +13,22 @@ protected:
 	int money_;
 
 public:
-	void SetName(const char* pName);
-	const char* GetName() { return name_; }
-	const int GetAttack() { return attack_; }
-	const int GetDefence() { return defence_; }
-	const int GetHP() { return hp_; }
-	const int GetMP() { return mp_; }
-	const int GetSpeed() { return speed_; }
-	const int Getmoney() { return money_; }
-	const int GetLevel() { return level_; }
-	const int Getexp() { return exp_; }
+	void SetName(const char* pName) ;
+	void SetMoney(int money) { money_ = money; }
+	void AddMoney(int money) { money_ += money; }
+	void SetExp(int exp) { exp_ = exp; }
+	void AddExp(int exp) { exp_ += exp; }
+	const char* GetName() const { return name_; }
+	int GetAttack() const { return attack_; }
+	int GetDefence() const { return defence_; }
+	int GetHP() const { return hp_; }
+	int GetMP() const { return mp_; }
+	int GetSpeed() const { return speed_; }
+	int Getmoney() const { return money_; }
+	int GetLevel() const { return level_; }
+	int Getexp() const { return exp_; }
 	void Hit(int attack);
+	virtual void Kill(const Object* pObj) {}
+	virtual void Dead() {}
+
 };

@@ -12,6 +12,7 @@ Skill::Skill(SkillType type, const char* name, const char* desc, int att, int de
 void Player::SetJob(JobType type)
 {
 	job_ = type;
+	level_ = 1;
 
 	switch (job_)
 	{
@@ -114,4 +115,55 @@ void Player::SetSkill(const Skill* pSkill)
 	}
 
 	cout << "더 이상 스킬을 추가할 수 없습니다." << endl;
+}
+
+void Player::Kill(const Object* pObj)
+{
+	cout << "처치 하였습니다." << endl;
+
+	exp_ += pObj->Getexp();
+	money_ += pObj->Getmoney();
+
+	if (exp_ > 10)
+	{
+		level_ += 1;
+	}
+}
+
+void Player::Dead()
+{
+	cout << "죽음을 맞이하여 마을로 돌아갑니다." << endl;
+
+	exp_ = 0;
+	money_ -= money_ * 0.1f;
+
+	if (money_ < 0)
+	{
+		money_ = 0;
+	}
+}
+
+void Player::ShowSkillList()
+{
+	int index = 0;
+	for (int i = 0; i < SKILL_MAX; i++)
+	{
+		if (pSkills_[i] != nullptr)
+		{
+			cout << index << ". " << pSkills_[i]->GetName() << " ";
+			++index;
+		}
+	}
+}
+
+void Player::UseSkill(int index, const Object* pObj)
+{
+	switch (pSkills_[index]->GetType())
+	{
+	case ST_ATTACK:
+		pSkills_[index]->GetValue();
+		break;
+	default:
+		break;
+	}
 }
