@@ -22,4 +22,6 @@ const char* GetDungeonName(DungeonType type)
 	default:
 		break;
 	}
+
+	return "";
 }

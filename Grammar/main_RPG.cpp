@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "Func.h"
 #include "Monster.h"
+#include "Skill.h"
+#include "SkillMgr.h"
 
 using namespace std;
 /*
@@ -28,7 +30,13 @@ void CreatePlayer()
 	p1.SetJob(static_cast<JobType>(job));
 	p1.ShowStatus();
 
-	p1.SetSkill(new Skill(SkillType::ST_ATTACK, "미라클 어택!", "미라클한 데미지를 입힌다.", 10, 0));
+	SkillMgr* pMgr = SkillMgr::GetInst();
+
+	p1.SetSkill(pMgr->GetSkill("미라클 어택!"));
+	p1.SetSkill(pMgr->GetSkill(0));
+	p1.SetSkill(pMgr->GetSkill(1));
+	p1.SetSkill(pMgr->GetSkill(1));
+
 	//상점 스킬 구매
 }
 
@@ -100,16 +108,17 @@ void Battle(DungeonType type)
 		case DEFENCE:
 			break;
 		case SKILL:
+		{
 			int selectSkill = 0;
 			p1.ShowSkillList();
 			cin >> selectSkill;
 			p1.UseSkill(selectSkill, pMonster);
-
 			break;
-		case ITEM:
+		}
+		/*case ITEM:
 			break;
 		case ESCAPE:
-			break;
+			break;*/
 		default:
 			break;
 		}
@@ -146,6 +155,7 @@ void ShowStage()
 
 int main()
 {
+	SkillMgr::GetInst()->Initialize();
 	CreatePlayer();
 	ShowStage();
 }

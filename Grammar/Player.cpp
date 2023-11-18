@@ -1,13 +1,8 @@
 #include "Player.h"
+#include "Skill.h"
+#include "SkillMgr.h"
 #include <iostream>
 using namespace std;
-
-Skill::Skill(SkillType type, const char* name, const char* desc, int att, int def)
-	:type_(type), att_(att), def_(def)
-{
-	strcpy_s(name_,name);
-	strcpy_s(desc_, desc);
-}
 
 void Player::SetJob(JobType type)
 {
@@ -103,7 +98,7 @@ const char* Player::GetJobName() const
 }
 
 //1. 비어있는 스킬 목록에 자동 세팅
-void Player::SetSkill(const Skill* pSkill)
+void Player::SetSkill(Skill* pSkill)
 {
 	for (int i = 0; i < SKILL_MAX; i++)
 	{
@@ -135,7 +130,7 @@ void Player::Dead()
 	cout << "죽음을 맞이하여 마을로 돌아갑니다." << endl;
 
 	exp_ = 0;
-	money_ -= money_ * 0.1f;
+	money_ -= static_cast<int>(money_ * 0.1f);
 
 	if (money_ < 0)
 	{
@@ -156,14 +151,20 @@ void Player::ShowSkillList()
 	}
 }
 
-void Player::UseSkill(int index, const Object* pObj)
+void Player::UseSkill(int index, Object* pObj)
 {
+	pSkills_[index]->UseSkill(this, pObj);
+
+	/*
 	switch (pSkills_[index]->GetType())
 	{
 	case ST_ATTACK:
-		pSkills_[index]->GetValue();
+		((AttackSkill*)pSkills_[index])->Crush();
 		break;
+	case ST_HEAL:
+	    ((HealSkill*)pSkills_[index])->Crush();
 	default:
 		break;
 	}
+	*/
 }

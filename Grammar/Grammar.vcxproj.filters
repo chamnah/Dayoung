@@ -168,6 +168,12 @@
     <ClCompile Include="Object.cpp">
       <Filter>소스 파일\17.RPG</Filter>
     </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillMgr.cpp">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="library.h">
@@ -192,6 +198,12 @@
       <Filter>소스 파일\17.RPG</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillMgr.h">
       <Filter>소스 파일\17.RPG</Filter>
     </ClInclude>
   </ItemGroup>
