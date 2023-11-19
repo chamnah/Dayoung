@@ -11,7 +11,7 @@ public:
 	void Initialize();
 
 public:
-	static SkillMgr* GetInst()
+	static SkillMgr* GetInst() // 싱글톤
 	{
 		static SkillMgr inst; // 단, 한개
 		return &inst;
@@ -20,7 +20,7 @@ public:
 	Skill* GetSkill(int skillIdx);
 	Skill* GetSkill(const char* skillName);
 //	Skill* CreateSkill(SkillType type, )
-
+	void TestFunc() {}
 };
 
 // static 변수 : 전역 변수 - 지역적인 특성 가지고 있다. 

@@ -4,6 +4,7 @@
 #include "Monster.h"
 #include "Skill.h"
 #include "SkillMgr.h"
+#include <assert.h>
 
 using namespace std;
 /*
@@ -15,6 +16,11 @@ using namespace std;
 */
 
 Player p1;
+
+void TestFunc()
+{
+
+}
 
 void CreatePlayer()
 {
@@ -36,6 +42,9 @@ void CreatePlayer()
 	p1.SetSkill(pMgr->GetSkill(0));
 	p1.SetSkill(pMgr->GetSkill(1));
 	p1.SetSkill(pMgr->GetSkill(1));
+
+	/*AttackSkill temp;
+	temp.SetFunc(&SkillMgr::TestFunc);*/
 
 	//상점 스킬 구매
 }

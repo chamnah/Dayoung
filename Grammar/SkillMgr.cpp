@@ -33,3 +33,16 @@ Skill* SkillMgr::GetSkill(const char* skillName)
 //	}
 //	return new AttackSkill();
 //}
+
+/*
+숙제
+선택지 3. 상점 4. 인벤토리 추가
+
+상점 만들기
+1. 무기
+2. 방어구
+3. 포션 - 스택커블 Max 3개
+
+선택지
+인벤토리 - 아이템 리스트
+*/

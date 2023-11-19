@@ -9,6 +9,11 @@ Skill::Skill(SkillType type, const char* name, const char* desc, float value)
 	strcpy_s(desc_, desc);
 }
 
+void Skill::SetFunc(void(Skill::*func)())
+{
+	((*this).*func)();
+}
+
 AttackSkill::AttackSkill(SkillType type, const char* name, const char* desc, float value)
 	:Skill::Skill(type, name, desc, value)
 {
