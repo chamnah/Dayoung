@@ -3,6 +3,9 @@
 enum StageType
 {
 	DUNGEON,
+	HOME,
+	SHOP,
+	INFO
 };
 
 enum DungeonType
@@ -38,4 +41,28 @@ enum SkillType
 {
 	ST_ATTACK,
 	ST_END
+};
+
+enum ShopType
+{
+	ST_WEAPON,
+	ST_ARMOR,
+	ST_POTION
+};
+
+enum ItemType
+{
+	Weapon,
+	Armor,
+	Potion
+};
+
+enum EquipType // 
+{
+	ET_WEAPON,
+	ET_ARMOR,
+
+	ET_END
+	//상술 반지, 목걸이, 귀걸이, 팔찌, 발찌, 속옷, 망토, 안드로이드, 펫,
+	//얼굴 장신구
 };

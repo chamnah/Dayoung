@@ -251,6 +251,8 @@
     <ClCompile Include="17. class.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="itemMgr.cpp" />
     <ClCompile Include="main_RPG.cpp" />
     <ClCompile Include="bbb.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -267,6 +269,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Skill.cpp" />
     <ClCompile Include="SkillMgr.cpp" />
     <ClCompile Include="test1.c">
@@ -277,13 +280,17 @@
     <ClInclude Include="14. AClass.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="define.h" />
     <ClInclude Include="enum.h" />
     <ClInclude Include="Func.h" />
     <ClInclude Include="globalValueLib.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="itemMgr.h" />
     <ClInclude Include="library.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillMgr.h" />
   </ItemGroup>

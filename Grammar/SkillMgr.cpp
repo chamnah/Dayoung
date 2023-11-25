@@ -41,7 +41,7 @@ Skill* SkillMgr::GetSkill(const char* skillName)
 상점 만들기
 1. 무기
 2. 방어구
-3. 포션 - 스택커블 Max 3개
+3. 포션 - 스택커블 Max 3개 - 인벤에 고유
 
 선택지
 인벤토리 - 아이템 리스트

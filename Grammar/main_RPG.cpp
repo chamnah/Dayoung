@@ -5,6 +5,8 @@
 #include "Skill.h"
 #include "SkillMgr.h"
 #include <assert.h>
+#include "Shop.h"
+#include  "itemMgr.h"
 
 using namespace std;
 /*
@@ -142,18 +144,48 @@ void ShowDungeon()
 	Battle(static_cast<DungeonType>(select));
 }
 
+void ShowShop()
+{
+	while (true)
+	{
+		int select = 0;
+		cout << "0. 무기 상점 1. 방어구 상점 2. 포션 상점 3. 돌아가기" << endl;
+		cin >> select;
+		system("cls");
+
+		if (select == 3)
+		{
+			break;
+		}
+
+		Shop npcShop;
+		npcShop.Init(static_cast<ShopType>(select));
+		npcShop.Show();
+
+		// 함수 밖에서 해제하고 싶을 때
+	}
+}
+
 void ShowStage()
 {
 	int selectedStage = 0;
 
 	while (true)
 	{
-		cout << "0. 던전 1. 여관";
+		cout << "0. 던전 1. 여관 2. 상점 3. 캐릭터 정보";
 		cin >> selectedStage;
+		system("cls");
 		switch (selectedStage)
 		{
 		case DUNGEON:
 			ShowDungeon();
+			break;
+		case SHOP:
+			ShowShop();
+			break;
+		case INFO:
+			p1.ShowInfo();
+			system("pause");
 			break;
 
 		default:
@@ -165,11 +197,20 @@ void ShowStage()
 int main()
 {
 	SkillMgr::GetInst()->Initialize();
+	ItemMgr::GetInst()->Init();
 	CreatePlayer();
 	ShowStage();
 }
 
 /*
+장비 장착/해제
+
+*/
+
+
+/*
+던그리드 - 대학생 4명
+
 JRPG - 마왕
 
 전투

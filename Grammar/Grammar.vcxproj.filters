@@ -174,6 +174,15 @@
     <ClCompile Include="SkillMgr.cpp">
       <Filter>소스 파일\17.RPG</Filter>
     </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClCompile>
+    <ClCompile Include="itemMgr.cpp">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="library.h">
@@ -204,6 +213,18 @@
       <Filter>소스 파일\17.RPG</Filter>
     </ClInclude>
     <ClInclude Include="SkillMgr.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>소스 파일\17.RPG</Filter>
+    </ClInclude>
+    <ClInclude Include="itemMgr.h">
       <Filter>소스 파일\17.RPG</Filter>
     </ClInclude>
   </ItemGroup>
