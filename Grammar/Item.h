@@ -8,7 +8,8 @@ private:
 	char desc_[50];
 	int price_;
 	int value_;
-	bool stackable_; // 무한 포션
+	//bool stackable_; // 무한 포션
+	int maxCount_;
 	//내구도 맥스치 / 
 
 public:
@@ -18,6 +19,7 @@ public:
 	int GetPrice() const { return price_; }
 	int GetValue() const { return value_; }
 	ItemType GetType() const { return type_; }
+	int GetMaxCount() const { return maxCount_; }
 };
 
 struct ItemObj // 경량 패턴

@@ -222,6 +222,16 @@ bool Player::AddItem(ItemObj* pItem)
 			pInven_[i] = pItem;
 			return true;
 		}
+		else if(pInven_[i]->pSharItem_->GetMaxCount() > 1
+			&& strcmp()) // 동일 아이템 검사 + 스택커블
+		{
+			// 이미 인벤토리에 아이템이 존재한다.
+			if ((pInven_[i]->count_ + pItem->count_) <= pInven_[i]->pSharItem_->GetMaxCount())
+			{
+
+			}
+
+		}
 	}
 
 	cout << "인벤토리에 빈 공간이 부족합니다." << endl;
@@ -317,5 +327,4 @@ void Player::ShowInfo()
 예시
 무기(장착중)
 신발 (장착중)
-
 */
